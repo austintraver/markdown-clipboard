@@ -1,5 +1,7 @@
 # Markdown Clipboard
 
+<img width="128" height="128" alt="clipboard-final-woohoo" src="https://github.com/user-attachments/assets/6975cdfd-fa44-4994-a100-0f1844b93375" />
+
 A VS Code extension that converts HTML on your clipboard to GitHub-Flavored Markdown.
 
 When you copy text from a webview (like Claude Code's chat panel), the clipboard receives rich HTML. This extension converts that HTML to clean Markdown so you can paste it into `.md` files, GitHub comments, Slack, and anywhere else that renders Markdown.
