@@ -1,8 +1,8 @@
 {
   "name": "markdown-clipboard",
   "displayName": "Markdown Clipboard",
-  "description": "Copies selected text and converts clipboard HTML to GitHub-Flavored Markdown. Works in Claude Code webviews and any browser-rendered content.",
-  "version": "1.0.0",
+  "description": "Copies selected text and converts clipboard HTML to GitHub-Flavored Markdown. Works in any VS Code webview.",
+  "version": "1.1.0",
   "author": {
     "name": "Austin Traver",
     "email": "austintraver@gmail.com"
@@ -37,15 +37,15 @@
       {
         "command": "markdownClipboard.copyAsMarkdown",
         "key": "ctrl+shift+c",
-        "mac": "cmd+shift+c"
+        "mac": "cmd+shift+c",
+        "when": "activeWebviewPanelId || activeEditor == 'workbench.editor.extension' || inWelcome"
       }
     ],
     "menus": {
       "webview/context": [
         {
           "command": "markdownClipboard.copyAsMarkdown",
-          "group": "9_cutcopypaste",
-          "when": "webviewId == 'claudeVSCodePanel' || webviewId == 'claudeVSCodeSidebar' || webviewId == 'claudeVSCodeSidebarSecondary'"
+          "group": "9_cutcopypaste"
         }
       ]
     }
