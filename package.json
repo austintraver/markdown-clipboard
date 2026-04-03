@@ -1,0 +1,70 @@
+{
+  "name": "markdown-clipboard",
+  "displayName": "Markdown Clipboard",
+  "description": "Copies selected text and converts clipboard HTML to GitHub-Flavored Markdown. Works in Claude Code webviews and any browser-rendered content.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Austin Traver",
+    "email": "austintraver@gmail.com"
+  },
+  "license": "MIT",
+  "publisher": "austintraver",
+  "__metadata": {
+    "publisherDisplayName": "Austin Traver"
+  },
+  "extensionKind": ["ui"],
+  "icon": "icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/austintraver/markdown-clipboard"
+  },
+  "engines": {
+    "vscode": "^1.94.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "markdownClipboard.copyAsMarkdown",
+        "title": "Copy as Markdown",
+        "category": "Clipboard"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "markdownClipboard.copyAsMarkdown",
+        "key": "ctrl+shift+c",
+        "mac": "cmd+shift+c"
+      }
+    ],
+    "menus": {
+      "webview/context": [
+        {
+          "command": "markdownClipboard.copyAsMarkdown",
+          "group": "9_cutcopypaste",
+          "when": "webviewId == 'claudeVSCodePanel' || webviewId == 'claudeVSCodeSidebar' || webviewId == 'claudeVSCodeSidebarSecondary'"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run bundle",
+    "bundle": "esbuild src/extension.ts --bundle --platform=node --target=node18 --external:vscode --outfile=out/extension.js",
+    "compile": "tsc --noEmit",
+    "watch": "tsc -watch --noEmit -p ./"
+  },
+  "dependencies": {
+    "turndown": "^7.2.0",
+    "@joplin/turndown-plugin-gfm": "^1.0.56"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.94.0",
+    "@types/turndown": "^5.0.5",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.24.0",
+    "typescript": "^5.4.5"
+  }
+}
